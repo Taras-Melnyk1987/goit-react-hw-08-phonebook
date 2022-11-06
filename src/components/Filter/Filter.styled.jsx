@@ -1,17 +1,18 @@
-import styled from 'styled-components';
+import { styled } from '@mui/material/styles';
 
-const FilterWrapper = styled.div`
+const FilterWrapper = styled('div')`
   display: flex;
   align-items: center;
-  padding-top: ${({ theme: { spacing } }) => spacing(1)};
+  padding-top: ${({ theme: { spacing } }) => spacing(0)};
   padding-bottom: ${({ theme: { spacing } }) => spacing(1)};
 `;
 
-const Input = styled.input`
+const Input = styled('input')`
   padding: ${({ theme: { spacing } }) => spacing(1)};
+  border-radius: ${({ theme: { shape } }) => `${shape.borderRadius}px`};
   &:focus,
   &:hover {
-    outline-color: ${({ theme: { colors } }) => colors.blue};
+    outline-color: ${({ theme: { palette } }) => palette.primary.main};
   }
 `;
 

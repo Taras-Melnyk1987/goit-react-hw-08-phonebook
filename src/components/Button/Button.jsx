@@ -1,24 +1,23 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import FormButton from './Button.styled';
+import { styled } from '@mui/material/styles';
+import Button from '@mui/material/Button';
 
-const Button = ({
-  type,
-  title = '',
-  onClick = () => null,
-  children = null,
-}) => {
+const CustomizedButton = styled(Button)(`
+  color: ${({ theme: { palette } }) => palette.primary.main};
+  outline-color: ${({ theme: { palette } }) => palette.primary.main};
+`);
+
+export default function StyledComponents({ children, onClick }) {
   return (
-    <FormButton type={type} onClick={onClick}>
-      {title}
-      {children}
-    </FormButton>
+    <CustomizedButton
+      children={children}
+      variant="outlined"
+      onClick={onClick}
+    />
   );
-};
+}
 
-Button.propTypes = {
-  type: PropTypes.string.isRequired,
-  title: PropTypes.string,
-  children: PropTypes.node,
+CustomizedButton.propTypes = {
+  onClick: PropTypes.func,
+  children: PropTypes.string.isRequired,
 };
-export default Button;
